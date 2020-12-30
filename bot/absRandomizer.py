@@ -1,24 +1,30 @@
 import numpy as np
 
 workouts = [
-        "Bicycles", 
-        "Side-middle-side Leg Tucks", 
-        "Flutter Kick", 
+        "Bicycles",
+        "SMS Leg Tucks",
+        "Flutter Kicks",
         "Windshield Wipers",
         "Penguin March",
         "Dead Bugs",
         "Leg Claps",
         "Heels to Heaven",
-        "KTE Crunche",
+        "KTE Crunches",
         "Scissor Kicks",
         "Russian V-Up",
-        "Side Plank (30 each side)",
+        "Side Planks",
         "Toe Touches",
-        "Row Boats",
-        "Leg Climbers"
+        "Row Boat",
+        "Leg Climbers",
+        "High-Low Plank",
+        "Regular Plank",
+        "Moutain Climbers",
+        "Boat Hold",
+        "Side-Plank Crunch",
 ]
 
 def getAbWorkout(wildcard):
-  randomizedWorkout = "\n".join(np.random.choice(workouts, (11), replace=False))
-  randomizedWorkout += "\n" + wildcard
-  return randomizedWorkout
+  workoutString = "Exercise Time: " + str(np.random.choice(["34s", "36s", "38s", "40s"])) + "\n"
+  workoutString += "\n".join(np.random.choice(workouts, (11), replace=False)) + "\n"
+  workoutString += "Wildcard: " + wildcard
+  return workoutString
