@@ -12,7 +12,11 @@ bot = commands.Bot(command_prefix='!')
 @bot.command(name='abs', help='Generates a random ab workout for the day, including a wildcard member from current people in the workout call')
 async def abs(context):
   guild = context.guild
-  swoleMates = [guild.get_member(x).name for x in (discord.utils.get(guild.voice_channels, name="General").voice_states).keys()]
+  swoleMates = [guild.get_member(x).name for x in (discord.utils.get(guild.voice_channels, name="WorkoutFromHome").voice_states).keys()]
+
+  if len(swoleMates) == 0:
+    await context.send("Nobody is in the workout :(")
+    return
 
   wildcard = np.random.choice(swoleMates)
   await context.send(getAbWorkout(wildcard))
