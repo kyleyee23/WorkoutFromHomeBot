@@ -3,10 +3,8 @@ import discord
 import numpy as np
 
 from discord.ext import commands
-from dotenv import load_dotenv
 from absRandomizer import getAbWorkout
 
-load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!')
