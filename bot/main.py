@@ -4,6 +4,8 @@ import numpy as np
 
 from discord.ext import commands
 from absRandomizer import getAbWorkout
+from chest import getChestWorkoutData
+from legs import getLegsWorkoutData
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -20,5 +22,18 @@ async def abs(context):
 
   wildcard = np.random.choice(swoleMates)
   await context.send(getAbWorkout(wildcard))
+
+@bot.command(name='chest', help='Prints the chest workout')
+async def abs(context):
+  await context.send(formatWorkoutString(*getChestWorkoutData()))
+
+@bot.command(name='legs', help='Prints the legs workout')
+async def abs(context):
+  await context.send(formatWorkoutString(*getLegsWorkoutData()))
+
+def formatWorkoutString(workouts, estimatedTimeMinutes):
+  workoutString = "Estimated Time: " + str(estimatedTimeMinutes) + "\n"
+  workoutString += "\n".join(workouts)
+  return workoutString
 
 bot.run(TOKEN)

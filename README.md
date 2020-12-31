@@ -12,9 +12,9 @@ To test this bot locally, you'll need to add the bot token as a local environmen
 export DISCORD_TOKEN={discord token string}
 ```
 
-replacing {discord token string} for the token value. Then, you can run `source ./init.sh` to populate your environment variables with the token value, after which the bot can run locally. 
+replacing `{discord token string}` for the token value. Then, you can run `source ./init.sh` to populate your environment variables with the token value, after which the bot can run locally. 
 
-To test the bot, simply run `python bot/main.py`, and issue commands in the Discord server. It may be useful to temporarily modify command names in your test code to prevent duplicate responses from the Heroku bot and your local instance.
+To test the bot, simply run `python3 bot/main.py`, and issue commands in the Discord server. It may be useful to temporarily modify command names in your test code to prevent duplicate responses from the Heroku bot and your local instance.
 
 
 ## Deployment
